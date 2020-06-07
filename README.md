@@ -1,7 +1,7 @@
-# ovlSysmodule
+# ovlTrainingModpack
 
-A Tesla overlay that allows you to toggle sysmodules on the fly
+A Tesla overlay for the Smash Ultimate Training Mod Pack
 
 ## Installation
 
-Download the latest ovlSysmodules.ovl from the release page and drop it into the /switch/.overlays folder on your Switch's SD card
+Download the latest ovlTrainingModpack.ovl from the release page and drop it into the /switch/.overlays folder on your Switch's SD card
