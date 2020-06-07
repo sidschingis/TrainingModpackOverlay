@@ -82,7 +82,9 @@ option after getting up.)"""";
 #define MASH_ATTACK 3
 #define MASH_SPOTDODGE 4
 #define MASH_RANDOM 5
-const std::vector<std::string> mash_items{"None", "Airdodge", "Jump", "Attack", "Spotdodge", "Random"};
+#define MASH_ROLL_F 6
+#define MASH_ROLL_B 7
+const std::vector<std::string> mash_items{"None", "Airdodge", "Jump", "Attack", "Spotdodge", "Random", "Roll F", "Roll B"};
 const std::string mash_help = R""""(
 Use this toggle along with the Shield 
 Options toggle to practice moves on 
