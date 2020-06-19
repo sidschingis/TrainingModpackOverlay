@@ -19,6 +19,7 @@ static struct TrainingModpackMenu
   int DEFENSIVE_STATE = RANDOM_DEFENSIVE;
   int OOS_OFFSET = 1;
   int MASH_IN_NEUTRAL = false;
+  int FAST_FALL = false;
 } menu;
 
 static int FRAME_ADVANTAGE = 0;
@@ -212,9 +213,9 @@ public:
                 if (frame_adv_addr != 0) {
                     rc = svcReadDebugProcessMemory(&FRAME_ADVANTAGE, debug, frame_adv_addr, sizeof(int));
                     snprintf(
-                        FrameAdvantage, 
-                        sizeof FrameAdvantage, 
-                        "Frame Advantage: %d", 
+                        FrameAdvantage,
+                        sizeof FrameAdvantage,
+                        "Frame Advantage: %d",
                         FRAME_ADVANTAGE);
                     rootFrame->setTitle(FrameAdvantage);
                 }
@@ -291,7 +292,7 @@ tsl::elm::Element *GuiMain::createUI() {
           svcCloseHandle(debug);
 
           ClickableListItem *frameAdvantageItem = new ClickableListItem(
-              "Frame Advantage", 
+              "Frame Advantage",
               frame_advantage_items,
               nullptr,
               "frameAdvantage",
@@ -406,6 +407,15 @@ tsl::elm::Element *GuiMain::createUI() {
               oos_help);
           list->addItem(oosOffsetItem);
           valueListItems.push_back(oosOffsetItem);
+
+          ValueListItem *fastFallItem = new ValueListItem(
+              "Fast Fall",
+              mash_neutral_items,
+              &menu.FAST_FALL,
+              "fast_fall",
+              "");
+          list->addItem(fastFallItem);
+          valueListItems.push_back(fastFallItem);
 
           for (auto valueListItem : valueListItems) {
               valueListItem->setStateChangedListener([](std::vector<std::string> menuItems, int* val, std::string extData, std::string title, std::string help) {
