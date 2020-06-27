@@ -17,7 +17,7 @@ static struct TrainingModpackMenu
   int MASH_STATE = NONE;
   int SHIELD_STATE = NONE;
   int DEFENSIVE_STATE = RANDOM_DEFENSIVE;
-  int OOS_OFFSET = 1;
+  int OOS_OFFSET = 0;
   int MASH_IN_NEUTRAL = false;
   int FAST_FALL = false;
 } menu;
