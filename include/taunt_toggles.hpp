@@ -4,6 +4,9 @@
 
 #include <vector>
 
+
+const std::vector<std::string> on_off{"Off", "On"};
+
 // Frame Advantage
 const std::vector<std::string> frame_advantage_items{""};
 const std::string frame_advantage_help = R""""(
@@ -167,7 +170,6 @@ Specific options include:
 )"""";
 
 // Hitbox visualization
-const std::vector<std::string> hitbox_items{"Off", "On"};
 const std::string hitbox_help = R""""(
 Currently, hitboxes and
 grabboxes are supported.
@@ -208,7 +210,6 @@ between hits will count
 as a single hit.)"""";
 
 // Mash in neutral
-const std::vector<std::string> mash_neutral_items{"Off", "On"};
 const std::string mash_neutral_help = R""""(
 Force mash options to
 always occur, not just
