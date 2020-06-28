@@ -54,7 +54,12 @@ Currently only used for
 #define MASH_DOWN_B 8
 #define MASH_UP_SMASH 9
 #define MASH_GRAB 10
-const std::vector<std::string> attack_items{"Neutral Air", "Forward Air", "Back Air", "Up Air", "Down Air", "Neutral B", "Side B", "Up B", "Down B", "Up Smash", "Grab"};
+const std::vector<std::string> attack_items{
+    "Neutral Air", "Forward Air", "Back Air", "Up Air", "Down Air",
+    "Neutral B", "Side B", "Up B", "Down B",
+    "Up Smash",
+    "Grab",
+    "Jab", "Filt", "Utilt", "Dtilt"};
 const std::string attack_help = R""""(
 Only active when Mash Toggle is
 set to Attack.
@@ -152,7 +157,7 @@ CPUs will hold a normal shield.)"""";
 #define DEFENSIVE_JAB 4
 #define DEFENSIVE_SHIELD 5
 const std::vector<std::string> defensive_items{"None", "Random", "Spotdodge", "Roll", "Jab", "Flash Shield"};
-const std::string defensive_help =     R""""(
+const std::string defensive_help = R""""(
 Choose the defensive option a CPU
 will perform after teching or
 getting up from the ledge.
@@ -160,7 +165,6 @@ getting up from the ledge.
 Specific options include:
     Flash shield, spotdodge, and jab
 )"""";
-
 
 // Hitbox visualization
 const std::vector<std::string> hitbox_items{"Off", "On"};
@@ -192,7 +196,7 @@ are saved:
 - Facing direction)"""";
 
 // OOS
-const std::vector<std::string> oos_items{"0","1","2","3","4","5","6","7","8","9"};
+const std::vector<std::string> oos_items{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
 const std::string oos_help = R""""(
 Option to delay oos options
 until a certain number of hits
