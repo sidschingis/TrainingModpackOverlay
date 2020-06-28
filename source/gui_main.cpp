@@ -310,7 +310,7 @@ tsl::elm::Element *GuiMain::createUI() {
 
           ValueListItem *hitboxItem = new ValueListItem(
               "Hitbox Visualization",
-              hitbox_items,
+              on_off,
               &menu.HITBOX_VIS,
               "hitbox",
               hitbox_help);
@@ -346,7 +346,7 @@ tsl::elm::Element *GuiMain::createUI() {
 
           ValueListItem *mashNeutralItem = new ValueListItem(
               "Mash In Neutral",
-              mash_neutral_items,
+              on_off,
               &menu.MASH_IN_NEUTRAL,
               "mash_neutral",
               mash_neutral_help);
@@ -410,7 +410,7 @@ tsl::elm::Element *GuiMain::createUI() {
 
           ValueListItem *fastFallItem = new ValueListItem(
               "Fast Fall",
-              mash_neutral_items,
+              on_off,
               &menu.FAST_FALL,
               "fast_fall",
               "");
