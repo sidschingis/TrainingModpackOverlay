@@ -60,7 +60,7 @@ Currently only used for
 const std::vector<std::string> attack_items{
     "Neutral Air", "Forward Air", "Back Air", "Up Air", "Down Air",
     "Neutral B", "Side B", "Up B", "Down B",
-    "Up Smash",
+    "Up Smash","F Smash","D Smash",
     "Grab",
     "Jab", "Filt", "Utilt", "Dtilt"};
 const std::string attack_help = R""""(
