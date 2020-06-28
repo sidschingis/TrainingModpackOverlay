@@ -20,6 +20,7 @@ static struct TrainingModpackMenu
   int OOS_OFFSET = 0;
   int MASH_IN_NEUTRAL = false;
   int FAST_FALL = false;
+  int FALLING_AERIALS = false;
 } menu;
 
 static int FRAME_ADVANTAGE = 0;
@@ -416,6 +417,15 @@ tsl::elm::Element *GuiMain::createUI() {
               "");
           list->addItem(fastFallItem);
           valueListItems.push_back(fastFallItem);
+
+          ValueListItem *fallingAerialsItem = new ValueListItem(
+              "Falling Aerials",
+              on_off,
+              &menu.FALLING_AERIALS,
+              "falling_aerials",
+              "");
+          list->addItem(fallingAerialsItem);
+          valueListItems.push_back(fallingAerialsItem);
 
           for (auto valueListItem : valueListItems) {
               valueListItem->setStateChangedListener([](std::vector<std::string> menuItems, int* val, std::string extData, std::string title, std::string help) {
