@@ -18,8 +18,10 @@ static struct TrainingModpackMenu
   int SHIELD_STATE = NONE;
   int DEFENSIVE_STATE = RANDOM_DEFENSIVE;
   int OOS_OFFSET = 0;
+  int REACTION_TIME = 0;
   int MASH_IN_NEUTRAL = false;
   int FAST_FALL = false;
+  int FAST_FALL_DELAY = 0;
   int FALLING_AERIALS = false;
   int FULL_HOP = false;
 } menu;
@@ -403,12 +405,21 @@ tsl::elm::Element *GuiMain::createUI() {
 
           ValueListItem *oosOffsetItem = new ValueListItem(
               "OOS Offset",
-              oos_items,
+              number_list,
               &menu.OOS_OFFSET,
               "oos",
               oos_help);
           list->addItem(oosOffsetItem);
           valueListItems.push_back(oosOffsetItem);
+
+          ValueListItem *reactionTime = new ValueListItem(
+              "Reaction Time",
+              number_list_big,
+              &menu.REACTION_TIME,
+              "reaction_time",
+              reaction_time_help);
+          list->addItem(reactionTime);
+          valueListItems.push_back(reactionTime);
 
           ValueListItem *fastFallItem = new ValueListItem(
               "Fast Fall",
@@ -418,6 +429,15 @@ tsl::elm::Element *GuiMain::createUI() {
               "");
           list->addItem(fastFallItem);
           valueListItems.push_back(fastFallItem);
+
+          ValueListItem *fastFallDelay = new ValueListItem(
+              "Fast Fall Delay",
+              number_list_big,
+              &menu.FAST_FALL_DELAY,
+              "fast_fall",
+              "In Frames");
+          list->addItem(fastFallDelay);
+          valueListItems.push_back(fastFallDelay);
 
           ValueListItem *fallingAerialsItem = new ValueListItem(
               "Falling Aerials",
