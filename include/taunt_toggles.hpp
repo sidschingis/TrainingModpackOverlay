@@ -4,7 +4,6 @@
 
 #include <vector>
 
-
 const std::vector<std::string> on_off{"Off", "On"};
 
 // Frame Advantage
@@ -60,7 +59,7 @@ Currently only used for
 const std::vector<std::string> attack_items{
     "Neutral Air", "Forward Air", "Back Air", "Up Air", "Down Air",
     "Neutral B", "Side B", "Up B", "Down B",
-    "Up Smash","F Smash","D Smash",
+    "Up Smash", "F Smash", "D Smash",
     "Grab",
     "Jab", "Filt", "Utilt", "Dtilt"};
 const std::string attack_help = R""""(
@@ -210,6 +209,12 @@ Consecutive hits that keep the
 CPU locked in shield stun
 between hits will count
 as a single hit.)"""";
+
+const std::string reaction_time_help = R""""(
+Additional reaction time
+in frames
+
+Used to delay OOS Options.)"""";
 
 // Mash in neutral
 const std::string mash_neutral_help = R""""(
