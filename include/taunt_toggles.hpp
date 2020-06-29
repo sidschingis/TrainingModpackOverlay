@@ -198,7 +198,9 @@ are saved:
 - Facing direction)"""";
 
 // OOS
-const std::vector<std::string> oos_items{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
+const std::vector<std::string> number_list{
+    "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+    };
 const std::string oos_help = R""""(
 Option to delay oos options
 until a certain number of hits
@@ -214,3 +216,8 @@ const std::string mash_neutral_help = R""""(
 Force mash options to
 always occur, not just
 out of specific states.)"""";
+
+const std::vector<std::string> number_list_big{
+    "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+    "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
+};

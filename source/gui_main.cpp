@@ -20,6 +20,7 @@ static struct TrainingModpackMenu
   int OOS_OFFSET = 0;
   int MASH_IN_NEUTRAL = false;
   int FAST_FALL = false;
+  int FAST_FALL_DELAY = 0;
   int FALLING_AERIALS = false;
   int FULL_HOP = false;
 } menu;
@@ -403,7 +404,7 @@ tsl::elm::Element *GuiMain::createUI() {
 
           ValueListItem *oosOffsetItem = new ValueListItem(
               "OOS Offset",
-              oos_items,
+              number_list,
               &menu.OOS_OFFSET,
               "oos",
               oos_help);
@@ -418,6 +419,15 @@ tsl::elm::Element *GuiMain::createUI() {
               "");
           list->addItem(fastFallItem);
           valueListItems.push_back(fastFallItem);
+
+          ValueListItem *fastFallDelay = new ValueListItem(
+              "Fast Fall Delay",
+              number_list_big,
+              &menu.FAST_FALL_DELAY,
+              "fast_fall",
+              "In Frames");
+          list->addItem(fastFallDelay);
+          valueListItems.push_back(fastFallDelay);
 
           ValueListItem *fallingAerialsItem = new ValueListItem(
               "Falling Aerials",
