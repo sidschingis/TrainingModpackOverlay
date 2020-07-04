@@ -12,6 +12,7 @@ static struct TrainingModpackMenu
   int DI_STATE = NONE;
   int LEFT_STICK = NONE;
   int ATTACK_STATE = MASH_NAIR;
+  int FOLLOW_UP = 0;
   int LEDGE_STATE = RANDOM_LEDGE;
   int TECH_STATE = RANDOM_TECH;
   int MASH_STATE = NONE;
@@ -347,6 +348,15 @@ tsl::elm::Element *GuiMain::createUI() {
               attack_help);
           list->addItem(attackItem);
           valueListItems.push_back(attackItem);
+
+          ValueListItem *followUp = new ValueListItem(
+              "Followup Toggles",
+              action_items,
+              &menu.FOLLOW_UP,
+              "followUp",
+              follow_up_help);
+          list->addItem(followUp);
+          valueListItems.push_back(followUp);
 
           ValueListItem *mashNeutralItem = new ValueListItem(
               "Mash In Neutral",

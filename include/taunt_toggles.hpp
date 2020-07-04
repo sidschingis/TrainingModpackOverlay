@@ -135,6 +135,19 @@ Spotdodge
 Random
 - Hitstun, shieldstun, landing.)"""";
 
+// Action items (Follow Up only atm)
+const std::vector<std::string> action_items{
+    "None", "Airdodge", "Jump", "Spotdodge", "Roll F", "Roll B",
+    "Neutral Air", "Forward Air", "Back Air", "Up Air", "Down Air",
+    "Neutral B", "Side B", "Up B", "Down B",
+    "Up Smash", "F Smash", "D Smash",
+    "Grab",
+    "Jab", "Filt", "Utilt", "Dtilt"};
+const std::string follow_up_help = R""""(
+Action to buffer
+after the first mash option
+)"""";
+
 // Shield States
 #define SHIELD_INFINITE 1
 #define SHIELD_HOLD 2
