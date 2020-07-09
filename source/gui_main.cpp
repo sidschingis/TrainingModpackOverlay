@@ -349,14 +349,18 @@ tsl::elm::Element *GuiMain::createUI() {
           list->addItem(attackItem);
           valueListItems.push_back(attackItem);
 
-          ValueListItem *followUp = new ValueListItem(
-              "Followup Toggles",
-              action_items,
-              &menu.FOLLOW_UP,
-              "followUp",
-              follow_up_help);
-          list->addItem(followUp);
-          valueListItems.push_back(followUp);
+        // Temporarily disable while it's not working perfectly
+        if ( false )
+        {
+            ValueListItem *followUp = new ValueListItem(
+                "Followup Toggles",
+                action_items,
+                &menu.FOLLOW_UP,
+                "followUp",
+                follow_up_help);
+            list->addItem(followUp);
+            valueListItems.push_back(followUp);
+        }
 
           ValueListItem *mashNeutralItem = new ValueListItem(
               "Mash In Neutral",
