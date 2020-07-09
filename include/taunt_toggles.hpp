@@ -61,7 +61,7 @@ const std::vector<std::string> attack_items{
     "Neutral B", "Side B", "Up B", "Down B",
     "Up Smash", "F Smash", "D Smash",
     "Grab",
-    "Jab", "Filt", "Utilt", "Dtilt"};
+    "Jab", "Ftilt", "Utilt", "Dtilt"};
 const std::string attack_help = R""""(
 Only active when Mash Toggle is
 set to Attack.
