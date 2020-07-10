@@ -516,10 +516,7 @@ void GuiMain::update() {
 
 void GuiMain::applyChanges() {
     for (ValueListItem *item : valueListItems) {
-        int value = item->getCurValue();
-        std::string extData = item->getExtData();
-        item->setValue(item->getValues()[value]);
-        item->setCurValue(value);
+        item->applyChanges();
     }
     Result rc;
     Handle debug;

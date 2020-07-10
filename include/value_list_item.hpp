@@ -26,6 +26,12 @@ public:
   {
   }
 
+  void applyChanges(){
+        int value = this->getCurValue();
+        this->setValue(this->getValues()[value]);
+        this->setCurValue(value);
+  }
+
   tsl::elm::Element *requestFocus(Element *oldFocus, tsl::FocusDirection direction)
   {
     return ListItem::requestFocus(oldFocus, direction);
