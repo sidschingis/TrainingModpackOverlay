@@ -2,19 +2,24 @@
 
 #include <list>
 #include <tesla.hpp>
+#include "gui_sublist.hpp"
 
 class ValueListItem : public tsl::elm::ListItem
 {
 public:
   ValueListItem(
-    std::string text, 
-    const std::vector<std::string> values, 
-    int* defaultPos, 
+    std::string text,
+    const std::vector<std::string> values,
+    int* defaultPos,
     const std::string data,
-    const std::string help) : 
+    const std::string help) :
   tsl::elm::ListItem(text), m_values(values), m_curValue(defaultPos), extdata(data), help(help)
   {
     this->setValue(m_values[*m_curValue]);
+
+    this->setStateChangedListener([](std::vector<std::string> menuItems, int *val, std::string extData, std::string title, std::string helpTxt) {
+        tsl::changeTo<GuiSublist>(menuItems, val, extData, title, helpTxt);
+    });
   }
 
   ~ValueListItem()

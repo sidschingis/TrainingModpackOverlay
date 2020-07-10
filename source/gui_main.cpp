@@ -1,6 +1,5 @@
 #include <tesla.hpp>
 #include "gui_main.hpp"
-#include "gui_sublist.hpp"
 #include "gui_help.hpp"
 #include "value_list_item.hpp"
 #include "clickable_list_item.hpp"
@@ -466,12 +465,6 @@ tsl::elm::Element *GuiMain::createUI() {
               "");
           list->addItem(fullHopItem);
           valueListItems.push_back(fullHopItem);
-
-          for (auto valueListItem : valueListItems) {
-              valueListItem->setStateChangedListener([](std::vector<std::string> menuItems, int* val, std::string extData, std::string title, std::string help) {
-               tsl::changeTo<GuiSublist>(menuItems, val, extData, title, help);
-            });
-          }
 
           ClickableListItem *saveStateItem = new ClickableListItem(
               "Save States",
