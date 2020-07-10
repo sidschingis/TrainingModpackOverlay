@@ -21,12 +21,7 @@ tsl::elm::Element *GuiSublist::createUI() {
 
     for (size_t i = 0; i < menuItems.size(); i++) {
         auto item = new ClickableListItem(menuItems[i], menuItems, this->index, "", i, title, help);
-        item->setClickListener([] (
-            std::vector<std::string> values, int* curValue, std::string extdata, int index, std::string title, std::string help) 
-        {
-            *curValue = index;
-            tsl::goBack();
-        });
+        setClickListener(item);
         item->setHelpListener([] (std::string title, std::string help) {
             tsl::changeTo<GuiHelp>(title, help);
         });
@@ -39,6 +34,15 @@ tsl::elm::Element *GuiSublist::createUI() {
     rootFrame->setContent(list);
 
     return rootFrame;
+}
+
+void GuiSublist::setClickListener(ClickableListItem *item) {
+    item->setClickListener([] (
+        std::vector<std::string> values, int* curValue, std::string extdata, int index, std::string title, std::string help)
+    {
+        *curValue = index;
+        tsl::goBack();
+    });
 }
 
 void GuiSublist::update() {
