@@ -1,17 +1,19 @@
 
+#pragma once
+
 #include <tesla.hpp>
 
 class ClickableListItem : public tsl::elm::ListItem
 {
 public:
   ClickableListItem(
-      std::string text, 
-      const std::vector<std::string> values, 
-      int* defaultPos, 
-      const std::string data, 
-      int index, 
-      std::string title, 
-      std::string help) : 
+      std::string text,
+      const std::vector<std::string> values,
+      int* defaultPos,
+      const std::string data,
+      int index,
+      std::string title,
+      std::string help) :
   tsl::elm::ListItem(text), m_values(values), m_curValue(defaultPos), extdata(data), title(title), help(help)
   {
     this->index = index;
@@ -34,8 +36,8 @@ public:
 
   bool onClick(u64 keys)
   {
-    if (keys & KEY_Y) 
-    { 
+    if (keys & KEY_Y)
+    {
         if (this->m_helpListener != nullptr) {
         this->m_helpListener(this->title, this->help);
         return true;
