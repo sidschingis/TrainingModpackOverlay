@@ -2,23 +2,32 @@
 
 #include <list>
 #include <tesla.hpp>
+#include "gui_sublist.hpp"
 
 class ValueListItem : public tsl::elm::ListItem
 {
 public:
   ValueListItem(
-    std::string text, 
-    const std::vector<std::string> values, 
-    int* defaultPos, 
+    std::string text,
+    const std::vector<std::string> values,
+    int* defaultPos,
     const std::string data,
-    const std::string help) : 
+    const std::string help) :
   tsl::elm::ListItem(text), m_values(values), m_curValue(defaultPos), extdata(data), help(help)
   {
     this->setValue(m_values[*m_curValue]);
+
+    this->initEventListener();
   }
 
   ~ValueListItem()
   {
+  }
+
+  void applyChanges(){
+        int value = this->getCurValue();
+        this->setValue(this->getValues()[value]);
+        this->setCurValue(value);
   }
 
   tsl::elm::Element *requestFocus(Element *oldFocus, tsl::FocusDirection direction)
@@ -58,6 +67,15 @@ public:
   const std::vector<std::string> getValues() { return this->m_values; }
 
   void setStateChangedListener(std::function<void(const std::vector<std::string>, int*, std::string, std::string, std::string)> valueChangeListener) { this->m_valueChangeListener = valueChangeListener; }
+
+protected:
+  void initEventListener()
+  {
+    this->setStateChangedListener([](std::vector<std::string> menuItems, int *val, std::string data, std::string title, std::string helpTxt) {
+        tsl::changeTo<GuiSublist>(menuItems, val, data, title, helpTxt);
+    });
+  }
+
 
 private:
   const std::vector<std::string> m_values;

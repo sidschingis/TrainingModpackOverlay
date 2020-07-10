@@ -2,6 +2,7 @@
 
 #include <list>
 #include <tesla.hpp>
+#include "clickable_list_item.hpp"
 
 class GuiSublist : public tsl::Gui {
   private:
@@ -19,4 +20,5 @@ class GuiSublist : public tsl::Gui {
     virtual tsl::elm::Element *createUI();
     virtual void update() override;
     void applyChanges();
+    virtual void setClickListener(ClickableListItem *item);
 };
