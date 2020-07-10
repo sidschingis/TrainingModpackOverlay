@@ -17,9 +17,7 @@ public:
   {
     this->setValue(m_values[*m_curValue]);
 
-    this->setStateChangedListener([](std::vector<std::string> menuItems, int *val, std::string extData, std::string title, std::string helpTxt) {
-        tsl::changeTo<GuiSublist>(menuItems, val, extData, title, helpTxt);
-    });
+    this->initEventListener();
   }
 
   ~ValueListItem()
@@ -69,6 +67,15 @@ public:
   const std::vector<std::string> getValues() { return this->m_values; }
 
   void setStateChangedListener(std::function<void(const std::vector<std::string>, int*, std::string, std::string, std::string)> valueChangeListener) { this->m_valueChangeListener = valueChangeListener; }
+
+protected:
+  void initEventListener()
+  {
+    this->setStateChangedListener([](std::vector<std::string> menuItems, int *val, std::string data, std::string title, std::string helpTxt) {
+        tsl::changeTo<GuiSublist>(menuItems, val, data, title, helpTxt);
+    });
+  }
+
 
 private:
   const std::vector<std::string> m_values;
