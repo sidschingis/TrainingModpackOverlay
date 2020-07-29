@@ -61,7 +61,9 @@ const std::vector<std::string> attack_items{
     "Neutral B", "Side B", "Up B", "Down B",
     "Up Smash", "F Smash", "D Smash",
     "Grab",
-    "Jab", "Ftilt", "Utilt", "Dtilt"};
+    "Jab", "Ftilt", "Utilt", "Dtilt",
+    "Dash Attack"
+};
 const std::string attack_help = R""""(
 Only active when Mash Toggle is
 set to Attack.
@@ -142,7 +144,9 @@ const std::vector<std::string> action_items{
     "Neutral B", "Side B", "Up B", "Down B",
     "Up Smash", "F Smash", "D Smash",
     "Grab",
-    "Jab", "Filt", "Utilt", "Dtilt"};
+    "Jab", "Filt", "Utilt", "Dtilt",
+    "Dash Attack"
+};
 const std::string follow_up_help = R""""(
 Action to buffer
 after the first mash option
